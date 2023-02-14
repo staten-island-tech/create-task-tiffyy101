@@ -2,7 +2,8 @@ import '/styles/style.css'
 
 const DOM = {
   display: document.getElementById("display"),
-  mainDiv: document.getElementById("main")
+  mainDiv: document.getElementById("main"),
+  all: document.getElementById("all")
 }
 const menu = "https://www.themealdb.com/api/json/v1/1/search.php?f=c";
 
@@ -14,7 +15,7 @@ async function getData(menu) {
     } else {
       const data = await response.json();
 
-function createList() {
+function all() {
   meals.data.forEach((meal) => {
     DOM.display.insertAdjacentHTML
     ("beforeend",
@@ -22,11 +23,16 @@ function createList() {
     <h2>${meal.strMeal}</h2>
     <img class="img" src=${meal.strMealThumb} alt=""/>
     <button id="choose" class="choose">Tutorial</button>
+    </div>
+          <div id="mainCard">
     `
     )
   });
 }
-meals.data.forEach((meal) => createList(meal));
+
+DOM.all.addEventListener("click", function () {
+  all();
+});
 
 console.log(data);
     }  
