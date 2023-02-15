@@ -16,15 +16,15 @@ async function getData(menu) {
       const data = await response.json();
 
 function all() {
-  meals.data.forEach((meal) => {
+  data.meals.forEach((meal) => {
     DOM.display.insertAdjacentHTML
     ("beforeend",
     `
     <h2>${meal.strMeal}</h2>
     <img class="img" src=${meal.strMealThumb} alt=""/>
+    <div class="btn">
     <button id="choose" class="choose">Tutorial</button>
     </div>
-          <div id="mainCard">
     `
     )
   });

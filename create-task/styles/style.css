@@ -9,3 +9,7 @@ body,
     background-color: var(--third);
 
 }
+
+.btn {
+    text-align: center;
+}
