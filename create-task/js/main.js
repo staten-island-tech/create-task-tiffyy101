@@ -3,7 +3,8 @@ import '/styles/style.css'
 const DOM = {
   display: document.getElementById("display"),
   mainDiv: document.getElementById("main"),
-  all: document.getElementById("all")
+  all: document.getElementById("all"),
+  tutorial: document.getElementById("choose")
 }
 const menu = "https://www.themealdb.com/api/json/v1/1/search.php?f=c";
 
@@ -20,19 +21,29 @@ function all() {
     DOM.display.insertAdjacentHTML
     ("beforeend",
     `
+    <div class="flip-card">
     <h2>${meal.strMeal}</h2>
     <img class="img" src=${meal.strMealThumb} alt=""/>
     <div class="btn">
     <button id="choose" class="choose">Tutorial</button>
     </div>
     `
-    )
+    );
   });
 }
+data.meals
+.forEach((menu) => all(menu));
 
-DOM.all.addEventListener("click", function () {
-  all();
-});
+function tutorial() {
+  data.filter((meals) => meals.strMeal.includes("C"))
+  .forEach(meal => {
+    DOM.display.insertAdjacentHTML
+    ("beforeend",
+    `
+    <h2>${meal.strYoutube}</h2>
+    `);
+  });
+}
 
 console.log(data);
     }  
@@ -42,3 +53,7 @@ console.log(data);
   }
 }
 getData(menu);
+
+DOM.tutorial.addEventListener("click", function () {
+  tutorial();
+});
