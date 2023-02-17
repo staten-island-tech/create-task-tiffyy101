@@ -3,7 +3,6 @@ import '/styles/style.css'
 const DOM = {
   display: document.getElementById("display"),
   mainDiv: document.getElementById("main"),
-  all: document.getElementById("all"),
   tutorial: document.getElementById("choose")
 }
 const menu = "https://www.themealdb.com/api/json/v1/1/search.php?f=c";
@@ -21,11 +20,15 @@ function all() {
     DOM.display.insertAdjacentHTML
     ("beforeend",
     `
-    <div class="flip-card">
+    <div class="card">
+    <div class="child">
     <h2>${meal.strMeal}</h2>
     <img class="img" src=${meal.strMealThumb} alt=""/>
-    <div class="btn">
+/*     <video width="55vh" height="55vh"/>
+    <source src="${meal.strYoutube}>
+    </video> */
     <button id="choose" class="choose">Tutorial</button>
+     </div>
     </div>
     `
     );
@@ -34,7 +37,7 @@ function all() {
 data.meals
 .forEach((menu) => all(menu));
 
-function tutorial() {
+function video() {
   data.filter((meals) => meals.strMeal.includes("C"))
   .forEach(meal => {
     DOM.display.insertAdjacentHTML
@@ -55,5 +58,5 @@ console.log(data);
 getData(menu);
 
 DOM.tutorial.addEventListener("click", function () {
-  tutorial();
+  video();
 });

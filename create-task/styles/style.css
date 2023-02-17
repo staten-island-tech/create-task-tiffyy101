@@ -5,11 +5,23 @@ body,
     -webkit-font-smoothing: antialiased;
     -moz-osz-font-smoothing: grayscale;
     text-align: center;
+    box-sizing: border-box;
+    flex: 200px;
     border-radius: 30px;
-    background-color: var(--third);
 
 }
 
 .btn {
     text-align: center;
+}
+
+.img {
+    width: 40vh;
+    height: 40vh;
+}
+
+.card {
+    display: flex;
+    width: 90vw;
+    flex-direction: row;
 }
