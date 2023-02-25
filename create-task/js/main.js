@@ -3,7 +3,8 @@ import '/styles/style.css'
 const DOM = {
   display: document.getElementById("display"),
   mainDiv: document.getElementById("main"),
-  tutorial: document.getElementById("choose")
+  tutorial: document.getElementById("choose"),
+  desserts: document.getElementById("desserts")
 }
 const menu = "https://www.themealdb.com/api/json/v1/1/search.php?f=c";
 
@@ -14,6 +15,7 @@ async function getData(menu) {
       throw new Error(response);
     } else {
       const data = await response.json();
+      console.log(data);
 
 function all() {
   data.meals.forEach((meal) => {
@@ -24,10 +26,7 @@ function all() {
     <div class="child">
     <h2>${meal.strMeal}</h2>
     <img class="img" src=${meal.strMealThumb} alt=""/>
-/*     <video width="55vh" height="55vh"/>
-    <source src="${meal.strYoutube}>
-    </video> */
-    <button id="choose" class="choose">Tutorial</button>
+    <h3><a href="${meal.strYoutube}">Tutorial</a></h3>
      </div>
     </div>
     `
@@ -36,20 +35,7 @@ function all() {
 }
 data.meals
 .forEach((menu) => all(menu));
-
-function video() {
-  data.filter((meals) => meals.strMeal.includes("C"))
-  .forEach(meal => {
-    DOM.display.insertAdjacentHTML
-    ("beforeend",
-    `
-    <h2>${meal.strYoutube}</h2>
-    `);
-  });
-}
-
-console.log(data);
-    }  
+}  
   } catch (error) {
     console.log(error);
     console.log("can't find");
@@ -57,6 +43,23 @@ console.log(data);
 }
 getData(menu);
 
-DOM.tutorial.addEventListener("click", function () {
-  video();
+const desserts = DOM.desserts;
+  desserts.addEventListener("click", function () {
+    DOM.display.innerHTML = " ";
+menu.meals
+.filter((meals) => meals.strCategory === "Dessert")
+  .forEach(meal => {
+    DOM.mainDiv.insertAdjacentHTML
+    ("beforeend",
+    `
+    <div class="card">
+    <div class="child">
+    <h2>${meal.strMeal}</h2>
+    <img class="img" src=${meal.strMealThumb} alt=""/>
+    <a href="${meal.strYoutube}">Tutorial</a>
+     </div>
+    </div>
+    `
+    );
+  });
 });
