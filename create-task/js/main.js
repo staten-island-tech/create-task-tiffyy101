@@ -50,8 +50,34 @@ DOM.theme.addEventListener("click", function () {
   if(document.body.classList.contains("warm")) {
       document.body.classList.add("cool");
       document.body.classList.remove("warm");
+  } else if(document.body.classList.contains("cool")) {
+      document.body.classList.add("fiery");
+      document.body.classList.remove("cool");
+      document.body.classList.remove("warm");
+  } else if(document.body.classList.contains("fiery")){
+      document.body.classList.add("green");
+      document.body.classList.remove("fiery");
+      document.body.classList.remove("cool");
+      document.body.classList.remove("warm");
+  } else if(document.body.classList.contains("green")){
+      document.body.classList.add("summer");
+      document.body.classList.remove("green");
+      document.body.classList.remove("fiery");
+      document.body.classList.remove("cool");
+      document.body.classList.remove("warm");
+  } else if(document.body.classList.contains("summer")){
+      document.body.classList.add("spring");
+      document.body.classList.remove("summer");
+      document.body.classList.remove("green");
+      document.body.classList.remove("fiery");
+      document.body.classList.remove("cool");
+      document.body.classList.remove("warm");
   } else {
       document.body.classList.add("warm");
+      document.body.classList.remove("summer");
+      document.body.classList.remove("green");
+      document.body.classList.remove("fiery");
       document.body.classList.remove("cool");
+      document.body.classList.remove("spring");
   }
 });

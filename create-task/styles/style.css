@@ -42,6 +42,42 @@
     --fourth: var(--dull-pink);
   }
 
+.green{
+  --black: #000;
+  --dark-green: rgb(3, 68, 3);
+  --light-green: rgb(164, 248, 155);
+  --bright-green: rgb(24, 198, 5);
+
+  --first: var(--black);
+  --second: var(--dark-green);
+  --third: var(--light-green);
+  --fourth: var(--bright-green);
+}
+
+.summer{
+  --black: #000;
+  --green-yellow: rgb(132, 132, 3);
+  --light-yellow: rgb(255, 255, 176);
+  --bright-yellow: rgb(250, 250, 11);
+
+  --first: var(--black);
+  --second: var(--green-yellow);
+  --third: var(--light-yellow);
+  --fourth: var(--bright-yellow);
+}
+
+.spring{
+  --black: #000;
+  --dark-purple: rgb(82, 0, 52);
+  --baby-pink: rgb(248, 218, 237);
+  --hot-pink: rgb(255, 32, 173);
+
+  --first: var(--black);
+  --second: var(--dark-purple);
+  --third: var(--baby-pink);
+  --fourth: var(--hot-pink);
+}
+
 head,
 body,
 * {
