@@ -2,9 +2,10 @@ import '/styles/style.css'
 
 const DOM = {
   display: document.getElementById("display"),
-  mainDiv: document.getElementById("main"),
+  gif: document.getElementById("gif"),
   tutorial: document.getElementById("choose"),
-  desserts: document.getElementById("desserts")
+  all: document.getElementById("show"),
+  theme: document.getElementById("color")
 }
 const menu = "https://www.themealdb.com/api/json/v1/1/search.php?f=c";
 
@@ -19,8 +20,9 @@ async function getData(menu) {
 
 function all() {
   data.meals.forEach((meal) => {
+    DOM.gif.innerHTML=" ";
     DOM.display.insertAdjacentHTML
-    ("beforeend",
+    ("afterbegin",
     `
     <div class="card">
     <div class="child">
@@ -33,9 +35,10 @@ function all() {
     );
   });
 }
-data.meals
-.forEach((menu) => all(menu));
-}  
+DOM.all.addEventListener("click", function () {
+  all();
+});
+    }
   } catch (error) {
     console.log(error);
     console.log("can't find");
@@ -43,23 +46,12 @@ data.meals
 }
 getData(menu);
 
-const desserts = DOM.desserts;
-  desserts.addEventListener("click", function () {
-    DOM.display.innerHTML = " ";
-menu.meals
-.filter((meals) => meals.strCategory === "Dessert")
-  .forEach(meal => {
-    DOM.mainDiv.insertAdjacentHTML
-    ("beforeend",
-    `
-    <div class="card">
-    <div class="child">
-    <h2>${meal.strMeal}</h2>
-    <img class="img" src=${meal.strMealThumb} alt=""/>
-    <a href="${meal.strYoutube}">Tutorial</a>
-     </div>
-    </div>
-    `
-    );
-  });
+DOM.theme.addEventListener("click", function () {
+  if(document.body.classList.contains("warm")) {
+      document.body.classList.add("cool");
+      document.body.classList.remove("warm");
+  } else {
+      document.body.classList.add("warm");
+      document.body.classList.remove("cool");
+  }
 });
