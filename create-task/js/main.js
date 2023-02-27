@@ -24,14 +24,15 @@ async function getData(menu) {
 function all() {
   data.meals.forEach((meal) => {
     DOM.gif.innerHTML=" ";
+    DOM.display.innerHTML=" "
     DOM.display.insertAdjacentHTML
     ("afterbegin",
     `
     <div class="card">
     <div class="child">
     <h2>${meal.strMeal}</h2>
-    <img class="img" src=${meal.strMealThumb} alt=""/>
     <h3><a href="${meal.strYoutube}">Tutorial</a></h3>
+    <img class="img" src=${meal.strMealThumb} alt=""/>
      </div>
     </div>
     `
@@ -50,16 +51,17 @@ DOM.all.addEventListener("click", function () {
 getData(menu);
 
 function createDrinks() {
+  DOM.gif.innerHTML=" ";
+  DOM.display.innerHTML=" "
   drinks.forEach((drink) => {
-    DOMSelectors.display.insertAdjacentHTML
+    DOM.display.insertAdjacentHTML
     ("afterbegin",
     `
     <div class="card">
     <div class="child">
     <h2>${drink.name}</h2>
-/*     <img class="img" src=${meal.strMealThumb} alt=""/>
-    <h3><a href="${meal.strYoutube}">Tutorial</a></h3> */
-     </div>
+    <h3><a href="${drink.video}">Tutorial</a></h3>
+    </div>
     </div>
     `
     );
