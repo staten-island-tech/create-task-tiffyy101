@@ -1,11 +1,14 @@
 import '/styles/style.css'
+import {drinks} from "./drinks";
+console.log("drinks");
 
 const DOM = {
   display: document.getElementById("display"),
   gif: document.getElementById("gif"),
   tutorial: document.getElementById("choose"),
   all: document.getElementById("show"),
-  theme: document.getElementById("color")
+  theme: document.getElementById("color"),
+  drink: document.getElementById("drink")
 }
 const menu = "https://www.themealdb.com/api/json/v1/1/search.php?f=c";
 
@@ -45,6 +48,27 @@ DOM.all.addEventListener("click", function () {
   }
 }
 getData(menu);
+
+function createDrinks() {
+  drinks.forEach((drink) => {
+    DOMSelectors.display.insertAdjacentHTML
+    ("afterbegin",
+    `
+    <div class="card">
+    <div class="child">
+    <h2>${drink.name}</h2>
+/*     <img class="img" src=${meal.strMealThumb} alt=""/>
+    <h3><a href="${meal.strYoutube}">Tutorial</a></h3> */
+     </div>
+    </div>
+    `
+    );
+  });
+}
+
+DOM.drink.addEventListener("click", function () {
+  createDrinks();
+});
 
 DOM.theme.addEventListener("click", function () {
   if(document.body.classList.contains("warm")) {
