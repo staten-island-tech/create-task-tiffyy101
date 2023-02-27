@@ -24,16 +24,14 @@ async function getData(menu) {
 function all() {
   data.meals.forEach((meal) => {
     DOM.gif.innerHTML=" ";
-    DOM.display.innerHTML=" "
     DOM.display.insertAdjacentHTML
     ("afterbegin",
     `
     <div class="card">
-    <div class="child">
+    <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
     <h2>${meal.strMeal}</h2>
-    <h3><a href="${meal.strYoutube}">Tutorial</a></h3>
+    <h3 class="link"><a href="${meal.strYoutube}">Tutorial</a></h3>
     <img class="img" src=${meal.strMealThumb} alt=""/>
-     </div>
     </div>
     `
     );
@@ -46,31 +44,9 @@ DOM.all.addEventListener("click", function () {
   } catch (error) {
     console.log(error);
     console.log("can't find");
-  }
+  } 
 }
 getData(menu);
-
-function createDrinks() {
-  DOM.gif.innerHTML=" ";
-  DOM.display.innerHTML=" "
-  drinks.forEach((drink) => {
-    DOM.display.insertAdjacentHTML
-    ("afterbegin",
-    `
-    <div class="card">
-    <div class="child">
-    <h2>${drink.name}</h2>
-    <h3><a href="${drink.video}">Tutorial</a></h3>
-    </div>
-    </div>
-    `
-    );
-  });
-}
-
-DOM.drink.addEventListener("click", function () {
-  createDrinks();
-});
 
 DOM.theme.addEventListener("click", function () {
   if(document.body.classList.contains("warm")) {
@@ -106,4 +82,25 @@ DOM.theme.addEventListener("click", function () {
       document.body.classList.remove("cool");
       document.body.classList.remove("spring");
   }
+});
+function createDrinks() {
+  DOM.gif.innerHTML=" ";
+  DOM.display.innerHTML=" "
+  drinks.forEach((drink) => {
+    DOM.display.insertAdjacentHTML
+    ("afterbegin",
+    `
+    <div class="card">
+    <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+    <h2>${drink.name}</h2>
+    <h3 class="link"><a href="${drink.video}">Tutorial</a></h3>
+    <img class="img" src=${drink.img} alt=""/>
+    </div>
+    `
+    );
+  });
+}
+
+DOM.drink.addEventListener("click", function () {
+  createDrinks();
 });
