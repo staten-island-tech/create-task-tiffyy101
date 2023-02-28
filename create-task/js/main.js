@@ -5,7 +5,6 @@ console.log("drinks");
 const DOM = {
   display: document.getElementById("display"),
   gif: document.getElementById("gif"),
-  tutorial: document.getElementById("choose"),
   all: document.getElementById("show"),
   theme: document.getElementById("color"),
   drink: document.getElementById("drink")
@@ -30,7 +29,7 @@ function all() {
     <div class="card">
     <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
     <h2>${meal.strMeal}</h2>
-    <h3 class="link"><a href="${meal.strYoutube}">Tutorial</a></h3>
+    <h3><a href="${meal.strYoutube}">Tutorial</a></h3>
     <img class="img" src=${meal.strMealThumb} alt=""/>
     </div>
     `
@@ -93,7 +92,7 @@ function createDrinks() {
     <div class="card">
     <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
     <h2>${drink.name}</h2>
-    <h3 class="link"><a href="${drink.video}">Tutorial</a></h3>
+    <h3><a href="${drink.video}">Tutorial</a></h3>
     <img class="img" src=${drink.img} alt=""/>
     </div>
     `
