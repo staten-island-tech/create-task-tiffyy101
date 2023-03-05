@@ -11,6 +11,7 @@ const DOM = {
 }
 const menu = "https://www.themealdb.com/api/json/v1/1/search.php?f=c";
 
+getData(menu);
 async function getData(menu) {
   try {
     const response = await fetch(menu);
@@ -45,9 +46,8 @@ DOM.all.addEventListener("click", function () {
     console.log("can't find");
   } 
 }
-getData(menu);
 
-DOM.theme.addEventListener("click", function () {
+function changeTheme() {
   if(document.body.classList.contains("warm")) {
       document.body.classList.add("cool");
       document.body.classList.remove("warm");
@@ -81,7 +81,12 @@ DOM.theme.addEventListener("click", function () {
       document.body.classList.remove("cool");
       document.body.classList.remove("spring");
   }
+}
+
+DOM.theme.addEventListener("click", function() {
+  changeTheme();
 });
+
 function createDrinks() {
   DOM.gif.innerHTML=" ";
   DOM.display.innerHTML=" "
